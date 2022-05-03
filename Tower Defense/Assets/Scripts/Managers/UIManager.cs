@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text playerHealt;
     [SerializeField] private Image playerHealtBaar;
     [SerializeField] private GameObject[] screens;
+    [SerializeField] private TowerCreator tc;
 
     private int indexTowerCreator;
 
@@ -33,14 +34,17 @@ public class UIManager : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(r, out hit, 100f, lm))
             {
-                if (!hit.transform.GetComponent<TowerCreator>().myTower)
+                if (!hit.transform.GetComponent<TowerCreator>() != null)
                 {
                     SetUpUi(hit.transform.position, hit.transform.GetSiblingIndex(), hit.transform.GetComponent<TowerCreator>().indexScreen);
                 }
             }
             else
             {
-                ui_3d.gameObject.SetActive(false);
+                for (int i = 0; i < screens.Length; i++)
+                {
+                    screens[i].SetActive(false);
+                }
             }
         }
     }
@@ -61,12 +65,11 @@ public class UIManager : MonoBehaviour
     void SetUpUi(Vector3 desirePos, int towerCreatorIndex, int indexScreen)
     {
         indexTowerCreator = towerCreatorIndex;
-        ui_3d.transform.position = cameraMain.GetComponent<Camera>().WorldToScreenPoint(desirePos);
-        //desirePos.y += offsetY;
-        //ui_3d.transform.position = desirePos;
-        //ui_3d.rotation = cameraMain.rotation;
-        ui_3d.gameObject.SetActive(true);
-        SetScreen(indexScreen);
+        screens[indexScreen].transform.position = cameraMain.GetComponent<Camera>().WorldToScreenPoint(desirePos);
+        for (int i = 0; i < screens.Length; i++)
+        {
+            screens[i].SetActive(i == indexScreen);
+        }
     }
     
 
@@ -77,18 +80,20 @@ public class UIManager : MonoBehaviour
             indexTowerCreator, indexPoolTower);
     }
 
+    public void OnSellTower()
+    { 
+    
+    }
+
+    public void OnUpgradeTower()
+    { 
+    
+    }
+
     void OnUpdatePlayerHealth()
     {
         playerHealt.text = $"{Player.Instance.currentLifePoints}/{Player.Instance.maxLifePoints}";
         float f = (float)Player.Instance.currentLifePoints / (float)Player.Instance.maxLifePoints;
         playerHealtBaar.fillAmount = f;
-    }
-
-    void SetScreen(int screenIndex)
-    {
-        for (int i = 0; i < screens.Length; i++)
-        {
-            screens[i].SetActive(i == screenIndex);
-        }
     }
 }

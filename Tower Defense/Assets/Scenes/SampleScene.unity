@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lanza flechas
+  m_text: Mejorar Torre
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d28b9e0a210c9824cbed0b63eca07ef1, type: 2}
   m_sharedMaterial: {fileID: 203061952791283475, guid: d28b9e0a210c9824cbed0b63eca07ef1, type: 2}
@@ -3140,7 +3140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687748812}
   m_Layer: 5
-  m_Name: CreateBasicTower
+  m_Name: Upgrade_Sell_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3464,7 +3464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &791315022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5626,7 +5626,7 @@ GameObject:
   - component: {fileID: 1242262059}
   - component: {fileID: 1242262058}
   m_Layer: 5
-  m_Name: Button_TowertParabolic
+  m_Name: Button_SellTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5698,8 +5698,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1548567438}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnCreateTower
-        m_Mode: 3
+        m_MethodName: OnSellTower
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6844,7 +6844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Bala de ca\xF1on"
+  m_text: Vender Torre
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d28b9e0a210c9824cbed0b63eca07ef1, type: 2}
   m_sharedMaterial: {fileID: 203061952791283475, guid: d28b9e0a210c9824cbed0b63eca07ef1, type: 2}
@@ -7123,6 +7123,8 @@ MonoBehaviour:
   playerHealtBaar: {fileID: 1191477885}
   screens:
   - {fileID: 1378046781}
+  - {fileID: 1646000806}
+  tc: {fileID: 0}
 --- !u!114 &1548567439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8492,7 +8494,7 @@ GameObject:
   - component: {fileID: 1968205911}
   - component: {fileID: 1968205910}
   m_Layer: 5
-  m_Name: Button_TowerBasic
+  m_Name: Button_UpgradeTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8564,8 +8566,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1548567438}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnCreateTower
-        m_Mode: 3
+        m_MethodName: OnUpgradeTower
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
